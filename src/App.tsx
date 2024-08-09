@@ -20,7 +20,6 @@ function App() {
         <Route path='/store' element={<div><Store /></div>} />
       </Routes>
     </div>
-    
     </ShoppingCartProvider>
     </>
   )
