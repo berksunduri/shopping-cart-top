@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import shoppingCartIcon from '../assets/shopping-cart.png'
-import { useShoppingCart } from '../context/ShoppingCartContext'
+import { useShoppingCart } from "../hooks/useShoppingCart";
 
 
 export function Navbar() {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
@@ -24,15 +24,8 @@ type ShoppingCartContextType = {
 }
 
 // Initialize context with correct type, use an empty object as the default value
-const ShoppingCartContext = createContext<ShoppingCartContextType | undefined>(undefined);
+export const ShoppingCartContext = createContext<ShoppingCartContextType | undefined>(undefined);
 
-export function useShoppingCart() {
-    const context = useContext(ShoppingCartContext);
-    if (!context) {
-        throw new Error("useShoppingCart must be used within a ShoppingCartProvider");
-    }
-    return context;
-}
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false);

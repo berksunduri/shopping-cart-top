@@ -1,4 +1,4 @@
-import { useShoppingCart } from "../context/ShoppingCartContext"
+import { useShoppingCart } from "../hooks/useShoppingCart";
 import { CartItem } from "./CartItem"
 
 type ShoppingCartProps = {
@@ -11,7 +11,7 @@ export function ShoppingCart({isOpen}: ShoppingCartProps) {
 
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity">
-            <div className="fixed right-0 top-0 bottom-0 w-96 bg-white shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div className="fixed right-0 top-0 bottom-0 w-96 bg-white shadow-lg transform transition-transform duration-300 ease-in-out flex flex-col">
                 <div className="p-4 border-b flex justify-between items-center">
                     <h2 className="text-lg font-semibold">Cart</h2>
                     <button onClick={closeCart} className="text-gray-500 hover:text-gray-700">
@@ -20,10 +20,12 @@ export function ShoppingCart({isOpen}: ShoppingCartProps) {
                         </svg>
                     </button>
                 </div>
-                <div className="p-4 space-y-4">
-                    {cartItems.map(item => (
-                        <CartItem key={item.id} {...item} />
-                    ))}
+                <div className="flex-1 overflow-y-auto">
+                    <div className="p-4 space-y-4">
+                        {cartItems.map(item => (
+                            <CartItem key={item.id} {...item} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

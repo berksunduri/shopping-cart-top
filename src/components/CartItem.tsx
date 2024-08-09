@@ -1,4 +1,4 @@
-import { useShoppingCart } from "../context/ShoppingCartContext"
+import { useShoppingCart } from "../hooks/useShoppingCart";
 import storeItems from "../data/items.json"
 
 type CartItemProps = {
